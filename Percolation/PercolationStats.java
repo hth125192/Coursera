@@ -3,10 +3,10 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
+    private static final double CONFIDENCE_95 = 1.96;
     private final int trials;
     private final double threshold;
     private final double sharpness;
-    private static final double CONFIDENCE_95 = 1.96;
 
     public PercolationStats(int n, int trials) {
         if (n <= 0 || trials <= 0) throw new IllegalArgumentException();
