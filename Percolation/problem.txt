@@ -1,0 +1,12 @@
+Ước lượng xác suất hệ thống mạng lưới các trang web được liên kết
+-> tương tự bài toán xác suất thẩm thấu của vật liệu
+-> ứng dụng của UnionFind: O(N^2)
+
+Percolation() -> giải thuật Monte Carlo
+    - Khởi tạo tất cả các trang web đều bị chặn
+    - Lặp đi lặp lại việc mở ngẫu nhiên 1 trang web đang bị chặn cho đến khi hệ thống được liên kết
+    - Số trang web được mở khi hệ thống liên kết cho phép ta ước tính về xác suất liên kết (ngưỡng thẩm thấu)
+
+PercolationStats() -> lặp lại nhiều lần thử nghiệm trên, ta có được con số chính xác hơn về xác suất cần tìm
+
+Ngoại lệ: size của hệ thống và số lần thử nghiệm không dương, gọi đến trang web nằm ngoài size của hệ thống

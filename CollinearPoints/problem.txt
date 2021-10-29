@@ -1,0 +1,9 @@
+Tìm tất cả các đoạn thẳng dài nhất nối ít nhất 4 trong n điểm cho trước
+-> kiểm tra hệ số góc: slope
+
+Brute() -> kiểm tra hệ số góc của tất cả các cặp 4 điểm với nhau: O(N^4)
+
+Fast() -> lấy 1 điểm p làm gốc, tính hệ số góc của các điểm còn lại so với p
+-> nếu có ít nhất 3 điểm có hệ số góc giống nhau so với p thì chúng và p thẳng hàng: O(N^2*logN)
+
+Ngoại lệ: tham số của constructor null, điểm null, điểm trùng lặp
