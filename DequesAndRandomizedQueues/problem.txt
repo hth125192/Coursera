@@ -1,0 +1,8 @@
+Xây dựng Dequeue, Randomized queue (48n + 192 bytes) và dùng tại Client Permulation O(N)
+
+Deque() -> a double-ended queue: cho phép add và remove ở cả front và back (hàng đợi 2 đầu)
+-> Doubly linked list
+
+RandomizedQueue() -> a randomized queue: một queue bình thường ngoài việc remove (dequeue) ngẫu nhiên
+
+Ngoại lệ: add null, remove khi empty, next null, remove trong vòng lặp
