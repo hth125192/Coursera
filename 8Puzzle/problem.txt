@@ -1,0 +1,27 @@
+8 puzzle là trò chơi xếp hình trên lưới 3x3 (mở rộng với n x n), với 8 mảnh ghép đánh số từ 1 đến 8
+-> nhiệm vụ là trượt các mảnh ghép theo chiều ngang hoặc dọc để đưa chúng về đúng vị trí (trượt càng ít càng tốt)
+-> ô trống trong lưới sẽ từ vị trí (1,1) về (3,3) (hay (n,n))
+
+Board() -> "bảng trượt" n x n -> O(N^2)
+    - hamming: số ô sai vị trí
+    - manhattan: tổng khoảng cách đến vị trí đúng của tất cả các ô sai vị trí (ngang + dọc)
+    - neighbors: các bảng "hàng xóm", có thể từ bảng hiện tại trượt 1 lần là ra (sẽ có 2, 3 hoặc 4 "hàng xóm" tùy chỗ)
+
+Solver() -> giải thuật Tìm kiếm A* -> a search node: (broad, numMoves, prevNode)
+    - Chèn first search node: (broad ban đầu, 0 moves, null prevNode) vào PriorityQueue
+    - Xóa search node có mức độ ưu tiên thấp nhất và chèn vào tất cả các neighbor nodes
+        + ưu tiên hamming: hamming + numMoves -> ưu tiên search node có số ô sai vị trí ít, rồi số lần di chuyển ít
+        + ưu tiên manhattan: manhattan + numMoves -> tương tự
+    - Lặp đi lặp lại việc xóa - chèn trên cho đến khi có được bảng đúng (goal broad)
+
+Tree: mỗi search node là 1 node trên tree, các node con là các neighbor nodes
+-> gốc là search node ban đầu, các node ở thân đã được xử lí, ngọn là các node còn trong PriorityQueue
+-> ở mỗi bước, thuật toán A* sẽ xóa node có mức độ ưu tiên thấp nhất khỏi PriorityQueue và xử lí nó (thêm neighbors)
+
+Tối ưu: 2 hướng
+    - không chèn neighbor mà giống với các node đã xét trước đó
+    - lưu lại các ưu tiên hamming và manhattan khi xây dựng các search node (bộ nhớ đệm)
+
+Cách phát hiện các broad không thể giải quyết: broad được tạo từ việc đảo 2 ô của goal broad
+
+Ngoại lệ: tham số của constructor null, ngoài ra return -1 và null cho moves() và solution() nếu không thể giải quyết
