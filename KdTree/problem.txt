@@ -1,0 +1,12 @@
+Viết kiểu dữ liệu đại diện cho tập hợp các điểm nằm trong hình vuông đơn vị
+-> sử dụng 2d Tree
+
+PointSET() -> sử dụng red-black BST
+    - insert, contains -> O(log(N))
+    - nearest, range -> O(N)
+
+KdTree() -> sử dụng 2d Tree (BST có keys 2 chiều)
+    - range search: từ gốc, đệ quy tìm 2 cây con theo quy tắc: loại tất cả các HCN không giao với HCN đang xét
+    - nearest neighbor search: từ gốc, đệ quy tìm 2 cây con theo quy tắc: loại tất cả các node xa hơn node gần nhất hiện tại
+
+Ngoại lệ: tham số null
